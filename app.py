@@ -17,11 +17,18 @@ def start_play():
     wrong_input = True
     print('Please, choose a game to play')
     while wrong_input:
-        print('1. Memory game - - a sequence of numbers will appear for 1 second and you have to guess it back')
-        print('2. Guess Game - guess a number and see if you chose like the computer.')
-        print('3. Currency Roulette - try and guess the value of a random amount of USD in ILS')
+        print('''
+        1. Memory game - a sequence of numbers will appear for 1 second and you have to guess it back'
+        2. Guess Game - guess a number and see if you chose like the computer.'
+        3. Currency Roulette - try and guess the value of a random amount of USD in ILS'
+        ''')
         choice_str = input('your choice:')
-        user_choice = int(choice_str)
+        try:
+            user_choice = int(choice_str)
+        except ValueError:
+            print('ERROR: The valUe you entered is not an  integer number')
+            user_choice = 0
+
         if user_choice > MAX_GAME_NUMBER or user_choice < 1:
             print('please, enter number from 1 to 3')
         else:
