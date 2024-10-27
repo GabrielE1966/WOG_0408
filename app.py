@@ -1,3 +1,4 @@
+from guess_game import play as play_guess
 def welcome():
     username = input('Please, enter your name: ')
     print(f'Hi {username}, and welcome to the World of Games: The Epic Journey')
@@ -38,7 +39,11 @@ def start_play():
     wrong_input = True
     while wrong_input:
         diff_level_str = input('Please, Enter difficulty level (1-5): ')
-        diff_level = int(diff_level_str)
+        try:
+            diff_level = int(diff_level_str)
+        except ValueError:
+            print('ERROR: The valUe you entered is not an  integer number')
+
         if diff_level > MAX_DIFFICULTY_LEVEL or diff_level < 1:
             print('Wrong Input!')
         else:
