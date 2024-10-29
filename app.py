@@ -1,4 +1,5 @@
 from guess_game import play as play_guess
+from currency_roulette_game import  play as play_currency_roulette
 def welcome():
     username = input('Please, enter your name: ')
     print(f'Hi {username}, and welcome to the World of Games: The Epic Journey')
@@ -48,3 +49,11 @@ def start_play():
             print('Wrong Input!')
         else:
             wrong_input = False
+
+# play the selected game
+    if user_choice == 1:
+        pass
+    elif user_choice == 2:
+        play_currency_roulette(diff_level)
+    elif user_choice == 3:
+        play_guess(diff_level)
