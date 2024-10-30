@@ -1,5 +1,8 @@
 from guess_game import play as play_guess
-from currency_roulette_game import  play as play_currency_roulette
+from currency_roulette_game import play as play_currency_roulette
+from memory_game import play as play_memory
+
+
 def welcome():
     username = input('Please, enter your name: ')
     print(f'Hi {username}, and welcome to the World of Games: The Epic Journey')
@@ -37,22 +40,23 @@ def start_play():
             wrong_input = False
 
     print(f'You chose Game Number: {gameInfo[user_choice]}')
-    wrong_input = True
-    while wrong_input:
+
+    diff_level = 0
+    while diff_level == 0:
         diff_level_str = input('Please, Enter difficulty level (1-5): ')
         try:
             diff_level = int(diff_level_str)
-        except ValueError:
-            print('ERROR: The valUe you entered is not an  integer number')
+            if diff_level > MAX_DIFFICULTY_LEVEL or diff_level < 1:
+                print('Wrong Input!')
+                diff_level = 0
 
-        if diff_level > MAX_DIFFICULTY_LEVEL or diff_level < 1:
-            print('Wrong Input!')
-        else:
-            wrong_input = False
+        except ValueError:
+            print('ERROR: The value you entered is not an  integer number')
+            diff_level = 0
 
 # play the selected game
     if user_choice == 1:
-        pass
+        play_memory(diff_level)
     elif user_choice == 2:
         play_currency_roulette(diff_level)
     elif user_choice == 3:
