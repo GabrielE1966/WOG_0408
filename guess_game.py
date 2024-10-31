@@ -33,5 +33,6 @@ def play(difficulty):
     user_choice = get_guess_from_user(difficulty)
 
     result = compare_result(user_choice, secret_number)
+    print(f'The secret number was: {secret_number}')
     return result
 

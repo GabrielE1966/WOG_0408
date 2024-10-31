@@ -46,7 +46,6 @@ def play(difficulty):
     print('Welcome to the currency roulette game!')
     dollar_value = generate_dollar_val()
     result = compare_result(dollar_value, difficulty)
-
     return result
 
 

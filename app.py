@@ -1,7 +1,7 @@
 from guess_game import play as play_guess
 from currency_roulette_game import play as play_currency_roulette
 from memory_game import play as play_memory
-
+from score import add_score
 
 def welcome():
     username = input('Please, enter your name: ')
@@ -55,9 +55,17 @@ def start_play():
             diff_level = 0
 
 # play the selected game
+    result = False
     if user_choice == 1:
-        play_memory(diff_level)
+        result = play_memory(diff_level)
     elif user_choice == 2:
-        play_currency_roulette(diff_level)
+        result = play_guess(diff_level)
     elif user_choice == 3:
-        play_guess(diff_level)
+        result = play_currency_roulette(diff_level)
+
+    if result:
+        print('Congratulations! You win!')
+        add_score(diff_level)
+    else:
+        print('Sorry, you lose! ')
+
